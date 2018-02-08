@@ -1,17 +1,20 @@
-var ev = document.getElementById('text');
+var event = document.getElementsByTagName('img');
 
 // FUNCION QUE "ARRASTRARA" LA IMAGEN
-function drag(ev) {
+function drag(event) {
   // Elemento a arrastrar
-  ev.dataTransfer.setData('text', ev.target.id);
+  console.log('Funciona. Está arrastrando la imagen');
+  event.dataTransfer.setData('text', event.target.id);
 }
 
-function allowDrop(ev) {
-  ev.preventDefault();
+function allowDrop(event) {
+  event.preventDefault();
+  console.log('Se está moviendo la imagen');
 }
 
 function drop(event) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData('text');
-  ev.target.appendChild(document.getElementById(data));
+  event.preventDefault();
+  var data = event.dataTransfer.getData('text');
+  event.target.appendChild(document.getElementById(data));
+  console.log('Logró dejar la imagen en el nuevo div');
 }
